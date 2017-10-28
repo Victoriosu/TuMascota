@@ -16,9 +16,9 @@
     <%= form.text_field :description, id: :pet_description %>
   </div>
 
-  <div class="field">
+  <div class="field ">
     <%= form.label :address %>
-    <%= form.text_field :address, id: :pet_address %>
+    <%= form.text_field :address, id: :pet_address, input_html: { class: 'geo-input' } %>
   </div>
 
   <div class="field">

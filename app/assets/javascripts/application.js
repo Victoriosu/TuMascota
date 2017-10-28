@@ -20,3 +20,7 @@ $(document).ready(function()
     "background-color":"rgba(0,0,255,0.6)",
     "color":"#000000"});
 });
+
+$(function() {
+   $('#geo-input').geocomplete();
+});
