@@ -28,6 +28,7 @@ class PetsController < ApplicationController
 
     respond_to do |format|
       if @pet.save
+        @pet.set_coordinates(request)
         format.html { redirect_to @pet, notice: 'Pet was successfully created.' }
         format.json { render :show, status: :created, location: @pet }
       else

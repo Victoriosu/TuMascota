@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<div class="contenido">
 <p>
   <strong>Description:</strong>
   <%= @pet.description %>
@@ -20,5 +20,11 @@
   <%= @pet.latitude %>
 </p>
 
+<p>
+  <strong>Mapa:</strong>
+  <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@pet.latitude}%2C#{@pet.longitude}" %>
+</p>
+
 <%= link_to 'Edit', edit_pet_path(@pet) %> |
 <%= link_to 'Back', pets_path %>
+</div>
