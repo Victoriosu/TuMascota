@@ -9,7 +9,7 @@ class Pet < ApplicationRecord
 
 
   def set_coordinates(request)
-    self.update_columns(longitude: request.location.longitude, latitude: request.location.longitude)
+    self.update_columns(longitude: request.location.longitude, latitude: request.location.latitude)
   end
 
 end
