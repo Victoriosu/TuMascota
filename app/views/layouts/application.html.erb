@@ -7,14 +7,15 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="jquery.geocomplete.js"></script>
+  <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBEXj5bOOegM61NJo1o0QtSgH8kCmrOFF4&libraries=places"></script>
+
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body style="background-image: url(/assets/fondo.png)">
+  <body style="background-image: url(/assets/fondo.png)" onload="ubication()">
     <%= yield %>
   </body>
 </html>

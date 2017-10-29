@@ -1,6 +1,7 @@
 <%= form_with(model: pet, local: true) do |form| %>
   <% if pet.errors.any? %>
-    <div id="error_explanation">
+    <!--suppress ALL -->
+        <div id="error_explanation">
       <h2><%= pluralize(pet.errors.count, "error") %> prohibited this pet from being saved:</h2>
 
       <ul>
@@ -16,20 +17,28 @@
     <%= form.text_field :description, id: :pet_description %>
   </div>
 
-  <div class="field ">
-    <%= form.label :address %>
-    <%= form.text_field :address, id: :pet_address, input_html: { class: 'geo-input' } %>
-  </div>
+    <div class="field ">
+      <%= form.label :address %>
+      <%= form.text_field :address, id: :pet_address, input_html: { class: 'geo-input' } %>
+    </div>
+
+    <%= form.text_field :latitude, type: 'hidden', id: :latitude %>
+    <%= form.text_field :longitude, type: 'hidden', id: :longitude %>
 
   <div class="field">
     <%= form.label :img %>
     <%= form.file_field :img, id: :pet_img %>
   </div>
 
+    <div id="location actions">
+      <%= form.submit %>
+    </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+    <p id="demo"></p>
+
+    <script>
+
+    </script>
 
   
 
