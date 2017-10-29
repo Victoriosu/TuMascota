@@ -24,20 +24,3 @@ $(document).ready(function()
 $(function() {
    $('#geo-input').geocomplete();
 });
-
-function ubication() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    } else {
-        x.innerHTML = "Geolocation is not supported by this browser.";
-    }
-}
-
-function showPosition(position) {
-
-    var x = document.getElementById("latitude");
-    var y = document.getElementById("longitude");
-
-    $("#latitude").prop('value', position.coords.latitude);
-    $("#longitude").prop('value', position.coords.longitude);
-}

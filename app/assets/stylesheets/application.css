@@ -14,6 +14,12 @@
  *= require_self
  */
 
+@font-face {
+    font-family: Awesome;
+    src: url('Awesome.otf');
+}
+
+
 tbody td{
   padding: 30px;
 }
@@ -25,7 +31,25 @@ tbody tr:nth-child(odd){
 
 .contenido{
 	background-color: white;
+    padding: 20px;
+    border-radius: 5px;
 }
+
+.centro {
+    background: white;
+    width:auto;
+    height:auto;
+    margin:auto;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    margin-top: -20%;
+    margin-left:-20%;
+    overflow:hidden;
+    padding:20px 20px 0px 20px;
+    border: 1px solid #dddddd;
+}
+
 
 body {
 	background: #fafafa url(https://jackrugile.com/images/misc/noise-diagonal.png);
@@ -135,4 +159,9 @@ tbody:hover td {
 tbody:hover tr:hover td {
 	color: #444;
 	text-shadow: 0 1px 0 #fff;
+}
+
+.titulo {
+    font-family: Awesome;
+
 }
