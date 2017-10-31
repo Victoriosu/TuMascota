@@ -26,7 +26,9 @@
     <p>
     <strong>Mapa:</strong>
       <div id="map_canvas" style="width:450px;height:300px;">
-      <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?size=240x260&markers=#{@pet.latitude}%2C#{@pet.longitude}&key=AIzaSyA0rb3n7gmyBW9eLKGpC3c9JjEpCRTLJac" %>
+        <div style='width: 240px;'>
+          <div id="map" style='width: 240px; height: 260px;'></div>
+        </div>
       </div>
     </p>
 
@@ -34,3 +36,26 @@
   <%= link_to ( raw '<i class="material-icons">reply</i>'), pets_path %>
   </div>
 </div>
+
+<script>
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+  markers = handler.addMarkers([
+  {
+  "lat": <%= @pet.latitude %>,
+  "lng": <%= @pet.longitude %>,
+  "picture": {
+  "url": 'http://images.clipartpanda.com/google-location-icon-vector-Google_Places.png',
+  "width":  180,
+  "height": 170
+  },
+  "infowindow": "hello!"
+  }
+  ]);
+  handler.bounds.extendWith(markers);
+  handler.fitMapToBounds();
+  handler.getMap().setZoom(17);
+  var me = new google.maps.LatLng(<%= @pet.latitude %>, <%= @pet.longitude %>);
+  handler.setMarker(me);
+  });
+</script>
