@@ -15,10 +15,12 @@
  */
 
 @font-face {
-    font-family: Awesome;
-    src: url('Awesome.otf');
+    font-family: 'Awesome';
+    src: font-url('Awesome.otf');
+    src: font-url('Awesome.otf');
+    font-weight: normal;
+    font-style: normal;
 }
-
 
 tbody td{
   padding: 30px;
