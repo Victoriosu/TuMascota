@@ -75,16 +75,25 @@
             });
         };
 
-        x.onclick = function() {
+
+            var geoError = function (errorObj) {
+                alert(errorObj.code + ": " + errorObj.message);
+
+                alert("No fue posible obtener su ubicación, favor ingrese su dirección");
+
+            };
+
             var startPos;
+
             var geoSuccess = function(position) {
                 startPos = position;
                 $("#latitude").prop('value', position.coords.latitude);
                 $("#longitude").prop('value', position.coords.longitude);
                 getReverseGeocodingData(position.coords.latitude, position.coords.longitude)
             };
-            navigator.geolocation.getCurrentPosition(geoSuccess);
-        };
+
+            x.onclick = navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
+
 
     </script>
 

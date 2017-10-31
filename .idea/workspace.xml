@@ -24,8 +24,8 @@
       <file leaf-file-name="_form.html.erb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/pets/_form.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
-              <caret line="77" column="9" lean-forward="false" selection-start-line="77" selection-start-column="9" selection-end-line="77" selection-end-column="9" />
+            <state relative-caret-position="146">
+              <caret line="81" column="69" lean-forward="false" selection-start-line="81" selection-start-column="69" selection-end-line="81" selection-end-column="69" />
               <folding />
             </state>
           </provider>
@@ -410,12 +410,12 @@
       <updated>1509145212433</updated>
       <workItem from="1509145219237" duration="436000" />
       <workItem from="1509145677837" duration="3921000" />
-      <workItem from="1509241947433" duration="23334000" />
+      <workItem from="1509241947433" duration="24093000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27691000" />
+    <option name="totallyTimeSpent" value="28450000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="5" y="23" width="1275" height="709" extended-state="6" />
@@ -745,8 +745,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/pets/_form.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="77" column="9" lean-forward="false" selection-start-line="77" selection-start-column="9" selection-end-line="77" selection-end-column="9" />
+        <state relative-caret-position="146">
+          <caret line="81" column="69" lean-forward="false" selection-start-line="81" selection-start-column="69" selection-end-line="81" selection-end-column="69" />
           <folding />
         </state>
       </provider>
