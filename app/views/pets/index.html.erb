@@ -7,6 +7,8 @@
 
       <div>
         <h5>¿Has visto o buscas alguna de estas mascotas?</h5>
+        <div style="text-align: center; font-size: 15px;"><%= link_to 'Agregar Nueva mascota', new_pet_path %></div>
+
       </div>
 
       <% @pets.each do |pet| %>
@@ -38,7 +40,6 @@
             </div>
       <% end %>
 
-    <div style="text-align: center; font-size: 15px;"><%= link_to 'Nueva mascota', new_pet_path %></div>
 
   </div>
   </div>
