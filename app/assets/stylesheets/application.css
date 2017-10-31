@@ -35,6 +35,179 @@ tbody tr:nth-child(odd){
     border-radius: 5px;
 }
 
+.cuerpo {
+    background: #333;
+}
+
+.dog {
+    width: 0px;
+    position: relative;
+    margin: 50px auto;
+}
+
+.head {
+    position: absolute;
+    width: 40px;
+    right: -74px;
+    top: -25px;
+    height: 39px;
+    border-radius: 50px;
+    background: #644437;
+}
+
+.nose {
+    position: absolute;
+    top: 11px;
+    left: -13px;
+    background: #644437;
+    width: 30px;
+    height: 28px;
+    border-radius: 0 0 0 25px;
+}
+
+.nose::after {
+    position: absolute;
+    background: #111;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    content: '';
+    display: block;
+    top: -5px;
+    left: -5px;
+}
+
+.ear {
+    background: #644437;
+    width: 15px;
+    height: 32px;
+    position: absolute;
+    top: 3px;
+    right: 9px;
+    border-radius: 0 0 0 40px;
+    border-left: 3px solid #493125;
+}
+
+.cuerpo {
+    width: 39px;
+    position: absolute;
+    top: 13px;
+    height: 37px;
+    background: #644437;
+    left: 40px;
+    border-radius: 0 150px 0 0;
+}
+
+.cuerpo::before {
+    position: absolute;
+    display: block;
+    content: '';
+    background: #f8a643;
+    width: 22px;
+    height: 7px;
+}
+
+.cuerpo::after {
+    display: block;
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #eee;
+    left: -8px;
+    top: 8px;
+    border-radius: 5px;
+    z-index: 3;
+}
+
+.paw {
+    position: absolute;
+    width: 16px;
+    height: 11px;
+    background: #644437;
+    top: 26px;
+    left: -12px;
+    border-radius: 25px 25px 0 0;
+}
+
+.paw::before {
+    display: block;
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    height: 70px;
+    width: 20px;
+    background: #493125;
+    z-index: -1;
+    border-radius: 0 20px 0 0;
+}
+
+.tail {
+    position: absolute;
+    width: 7px;
+    height: 27px;
+    top: 9px;
+    background: #493125;
+    right: -5px;
+    z-index: 2;
+    border-radius: 0 50px 50px 0 / 0 100px 100px 0;
+}
+
+.bone {
+    background: #eee;
+    width: 31px;
+    height: 11px;
+    position: absolute;
+    top: 24px;
+    left: -20px;
+}
+
+.left {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #eee;
+    border-radius: 10px;
+    top: -5px;
+    left: -5px;
+}
+
+.left::after {
+    display: block;
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #eee;
+    border-radius: 10px;
+    top: 10px;
+    right: 0;
+}
+
+.right {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #eee;
+    border-radius: 10px;
+    top: -5px;
+    right: -5px;
+}
+
+.right::after {
+    display: block;
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #eee;
+    border-radius: 10px;
+    top: 10px;
+    right: 0;
+}
+
+
 .centro {
     background: white;
     width:auto;

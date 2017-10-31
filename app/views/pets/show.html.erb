@@ -1,33 +1,36 @@
-<p id="notice"><%= notice %></p>
-<div class="centro">
-<p>
-  <strong>Description:</strong>
-  <%= @pet.description %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @pet.address %>
-</p>
-
-<p>
-  <strong>Longitude:</strong>
-  <%= @pet.longitude %>
-</p>
-
-<p>
-  <strong>Latitude:</strong>
-  <%= @pet.latitude %>
-</p>
-
+<div class="container">
+  <div class="contenido">
+  <p id="notice"><%= notice %></p>
 
   <p>
-  <strong>Mapa:</strong>
-    <div id="map_canvas" style="width:450px;height:300px;">
-    <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?size=450x300&markers=#{@pet.latitude}%2C#{@pet.longitude}&key=AIzaSyA0rb3n7gmyBW9eLKGpC3c9JjEpCRTLJac" %>
-    </div>
+    <strong>Description:</strong>
+    <%= @pet.description %>
   </p>
 
-<%= link_to 'Edit', edit_pet_path(@pet) %>
-<%= link_to 'Back', pets_path %>
+  <p>
+    <strong>Address:</strong>
+    <%= @pet.address %>
+  </p>
+
+  <p>
+    <strong>Longitude:</strong>
+    <%= @pet.longitude %>
+  </p>
+
+  <p>
+    <strong>Latitude:</strong>
+    <%= @pet.latitude %>
+  </p>
+
+
+    <p>
+    <strong>Mapa:</strong>
+      <div id="map_canvas" style="width:450px;height:300px;">
+      <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?size=450x300&markers=#{@pet.latitude}%2C#{@pet.longitude}&key=AIzaSyA0rb3n7gmyBW9eLKGpC3c9JjEpCRTLJac" %>
+      </div>
+    </p>
+
+  <%= link_to 'Edit', edit_pet_path(@pet) %>
+  <%= link_to 'Back', pets_path %>
+  </div>
 </div>

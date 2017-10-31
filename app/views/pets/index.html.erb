@@ -10,17 +10,35 @@
       </div>
 
       <% @pets.each do |pet| %>
-            <div>
+            <div class="imagen" style="width: 80px; height: 50px;">
+            <% if !pet.img.exists? %>
+                  <div class='dog'>
+                    <div class='head'>
+                      <div class='nose'></div>
+                      <div class='ear'></div>
+                    </div>
+                    <div class='cuerpo'>
+                      <div class='paw'></div>
+                      <div class='tail'></div>
+                    </div>
+                    <div class='bone'>
+                      <div class='left'></div>
+                      <div class='right'></div>
+                    </div>
+                  </div>
+
+            <% else %>
               <%= image_tag pet.img.url(:thumb), style: 'text-align: center;' %>
+            <% end %>
             </div>
-            <div>&nbsp;</div>
+            <div style="text-align: center; margin-top: 10px;">Imagen no encontrada</div>
             <div class="inline-block">
-              <button type="button" class="btn btn-success" style="">¡Lo ví!</button>
-              <button type="button" class="btn btn-info">¡Lo busco!</button>
+              <button type="button" class="btn btn-success" style="width: 50%;">¡Lo ví!</button>
+              <button type="button" class="btn btn-info" style="width: 48%;">¡Lo busco!</button>
             </div>
       <% end %>
 
-    <div style="text-align: center; font-size: 15px;"><%= link_to 'New Pet', new_pet_path %></div>
+    <div style="text-align: center; font-size: 15px;"><%= link_to 'Nueva mascota', new_pet_path %></div>
 
   </div>
   </div>
