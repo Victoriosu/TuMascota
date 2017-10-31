@@ -73,7 +73,18 @@
                     $('#pet_address').val(direccion);
                 }
             });
-        }
+        };
+
+        x.onclick = function() {
+            var startPos;
+            var geoSuccess = function(position) {
+                startPos = position;
+                $("#latitude").prop('value', position.coords.latitude);
+                $("#longitude").prop('value', position.coords.longitude);
+                getReverseGeocodingData(position.coords.latitude, position.coords.longitude)
+            };
+            navigator.geolocation.getCurrentPosition(geoSuccess);
+        };
 
     </script>
 
