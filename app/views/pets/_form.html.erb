@@ -14,34 +14,36 @@
         <% end %>
 
         <div class="field">
-          <%= form.label :description %>
+          <%= form.label "Descripcion" %>
           <%= form.text_field :description, id: :pet_description %>
         </div>
 
         <div class="field">
-          <%= form.label :address %>
+          <%= form.label "Dirección" %>
           <%= form.text_field :address, id: :pet_address, input_html: { class: 'geo-input form-control' } %>
 
           O puedes tambien ingresar tu ubicación actual
-          <button type="button" id="locateButton" onclick="getLocation()">Usar mi ubicación</button>
+          <button type="button" id="locateButton">Usar mi ubicación</button>
         </div>
         <%= form.text_field :latitude, type: 'hidden', id: :latitude %>
         <%= form.text_field :longitude, type: 'hidden', id: :longitude %>
 
         <div class="field">
-          <%= form.label :img %>
+          <%= form.label "Imagen" %>
           <%= form.file_field :img, id: :pet_img %>
         </div>
 
         <div id="location actions">
-          <%= form.submit %>
+          <%= form.submit value: "Crear mascota" %>
         </div>
 
     <script>
         var x = $("#locateButton");
         var direccion = $('#pet_address').val();
 
-        function getLocation() {
+
+        function getLocation()
+        {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(showPosition);
             } else {
@@ -49,20 +51,20 @@
             }
         }
 
-          function showPosition(position) {
-              if (direccion == "") {
-                  $("#latitude").prop('value', position.coords.latitude);
-                  $("#longitude").prop('value', position.coords.longitude);
-                  getReverseGeocodingData(position.coords.latitude, position.coords.longitude)
+        function showPosition(position) {
+            if (direccion == "") {
+                $("#latitude").prop('value', position.coords.latitude);
+                $("#longitude").prop('value', position.coords.longitude);
+                getReverseGeocodingData(position.coords.latitude, position.coords.longitude)
 
-              }
-          }
+            }
+        }
 
         function getReverseGeocodingData(lat, lng) {
             var latlng = new google.maps.LatLng(lat, lng);
             // This is making the Geocode request
             var geocoder = new google.maps.Geocoder();
-            geocoder.geocode({ 'latLng': latlng }, function (results, status) {
+            geocoder.geocode({'latLng': latlng}, function (results, status) {
                 if (status !== google.maps.GeocoderStatus.OK) {
                     alert(status);
                 }
@@ -76,24 +78,26 @@
         };
 
 
-            var geoError = function (errorObj) {
-                alert(errorObj.code + ": " + errorObj.message);
+        var geoError = function (errorObj) {
+            alert(errorObj.code + ": " + errorObj.message);
 
-                alert("No fue posible obtener su ubicación, favor ingrese su dirección");
+            alert("No fue posible obtener su ubicación, favor ingrese su dirección");
 
-            };
+        };
 
-            var startPos;
+        var startPos;
 
-            var geoSuccess = function(position) {
-                startPos = position;
-                $("#latitude").prop('value', position.coords.latitude);
-                $("#longitude").prop('value', position.coords.longitude);
-                getReverseGeocodingData(position.coords.latitude, position.coords.longitude)
-            };
+        var geoSuccess = function (position) {
+            startPos = position;
+            $("#latitude").prop('value', position.coords.latitude);
+            $("#longitude").prop('value', position.coords.longitude);
+            getReverseGeocodingData(position.coords.latitude, position.coords.longitude)
+        };
 
-            x.onclick = navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
 
+        $("#locateButton").click(function () {
+            navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
+        });
 
     </script>
 
