@@ -1,43 +1,42 @@
-<div class="centro">
-<%= form_with(model: pet, local: true) do |form| %>
-  <% if pet.errors.any? %>
-    <!--suppress ALL -->
-        <div id="error_explanation">
-      <h2><%= pluralize(pet.errors.count, "error") %> no permitió que se guardara esta mascota:</h2>
 
-      <ul>
-      <% pet.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+    <%= form_with(model: pet, local: true, defaults: { input_html: { style: 'border-color: bisque;' } }) do |form| %>
+        <% if pet.errors.any? %>
+            <!--suppress ALL -->
+            <div id="error_explanation">
+              <h2><%= pluralize(pet.errors.count, "error") %> no permitió que se guardara esta mascota:</h2>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description, id: :pet_description %>
-  </div>
+              <ul>
+                <% pet.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+        <% end %>
 
-    <div class="field">
-      <%= form.label :address %>
-      <%= form.text_field :address, id: :pet_address, input_html: { class: 'geo-input' } %>
+        <div class="field">
+          <%= form.label :description %>
+          <%= form.text_field :description, id: :pet_description %>
+        </div>
 
-      O puedes tambien ingresar tu ubicación actual
-      <button type="button" id="locateButton" onclick="getLocation()">Usar mi ubicación</button>
-    </div>
-    <%= form.text_field :latitude, type: 'hidden', id: :latitude %>
-    <%= form.text_field :longitude, type: 'hidden', id: :longitude %>
+        <div class="field">
+          <%= form.label :address %>
+          <%= form.text_field :address, id: :pet_address, input_html: { class: 'geo-input form-control' } %>
 
-  <div class="field">
-    <%= form.label :img %>
-    <%= form.file_field :img, id: :pet_img %>
-  </div>
+          O puedes tambien ingresar tu ubicación actual
+          <button type="button" id="locateButton" onclick="getLocation()">Usar mi ubicación</button>
+        </div>
+        <%= form.text_field :latitude, type: 'hidden', id: :latitude %>
+        <%= form.text_field :longitude, type: 'hidden', id: :longitude %>
 
-    <div id="location actions">
-      <%= form.submit %>
-    </div>
+        <div class="field">
+          <%= form.label :img %>
+          <%= form.file_field :img, id: :pet_img %>
+        </div>
 
-</div>
+        <div id="location actions">
+          <%= form.submit %>
+        </div>
+
     <script>
         var x = $("#locateButton");
         var direccion = $('#pet_address').val();
@@ -50,14 +49,14 @@
             }
         }
 
-        function showPosition(position) {
-            if (direccion == "") {
-                $("#latitude").prop('value', position.coords.latitude);
-                $("#longitude").prop('value', position.coords.longitude);
-                getReverseGeocodingData(position.coords.latitude, position.coords.longitude)
+          function showPosition(position) {
+              if (direccion == "") {
+                  $("#latitude").prop('value', position.coords.latitude);
+                  $("#longitude").prop('value', position.coords.longitude);
+                  getReverseGeocodingData(position.coords.latitude, position.coords.longitude)
 
-            }
-        }
+              }
+          }
 
         function getReverseGeocodingData(lat, lng) {
             var latlng = new google.maps.LatLng(lat, lng);

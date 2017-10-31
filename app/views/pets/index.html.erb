@@ -2,36 +2,29 @@
 <p id="notice"><%= notice %></p>
   <div class="contenido">
     <div class="titulo">
-      <h1>Mascotas reportadas</h1>
-      <div style="text-align: right; font-size: 15px;"><%= link_to 'New Pet', new_pet_path %></div>
+      <h2>Mascotas reportadas</h2>
     </div>
 
+      <div>
+        <h5>¿Has visto o buscas alguna de estas mascotas?</h5>
+      </div>
 
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Imagen</th>
-          <th>Descripcion</th>
-          <th>Dirección</th>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
+      <% @pets.each do |pet| %>
+            <div>
+              <%= image_tag pet.img.url(:thumb), style: 'text-align: center;' %>
+            </div>
+            <div>&nbsp;</div>
+            <div class="inline-block">
+              <button type="button" class="btn btn-success" style="">¡Lo ví!</button>
+              <button type="button" class="btn btn-info">¡Lo busco!</button>
+            </div>
+      <% end %>
 
-      <tbody>
-        <% @pets.each do |pet| %>
-          <tr>
-            <td><%= image_tag pet.img.url(:thumb) %></td>
-            <td><%= pet.description %></td>
-            <td><%= pet.address %></td>
-            <td><%= link_to 'Show', pet %></td>
-            <td><%= link_to 'Edit', edit_pet_path(pet) %></td>
-            <td><%= link_to 'Destroy', pet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+    <div style="text-align: center; font-size: 15px;"><%= link_to 'New Pet', new_pet_path %></div>
+
   </div>
-</div>
+  </div>
+
 <br>
 
 
