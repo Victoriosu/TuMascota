@@ -21,6 +21,13 @@
   </head>
 
   <body style="background-image: url(/fondo.png)">
-    <%= yield %>
+  <div id="loading" style="display: none;">
+    <%= image_tag("loading.gif", id: "loading-image", alt: "Loading...", size:"50x50")  %>
+  </div>
+    <div class="container">
+      <%= yield %>
+    </div>
+
+
   </body>
 </html>

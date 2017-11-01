@@ -28,18 +28,20 @@
                       <div class='right'></div>
                     </div>
                   </div>
-
             <% else %>
-              <%= image_tag pet.img.url(:thumb), style: 'text-align: center;' %>
+              <div style="margin-left: 50%;"><%= image_tag pet.img.url(:thumb) %></div>
             <% end %>
+
             </div>
-            <div style="text-align: center; margin-top: 10px;">Imagen no encontrada</div>
-            <div class="inline-block">
+        <div style="text-align: center; margin-top: 10px;">Imagen no encontrada</div>
+
+        <div class="inline-block">
               <button type="button" class="btn btn-success" style="width: 50%;">¡Lo ví!</button>
               <button type="button" class="btn btn-info" style="width: 48%;">¡Lo busco!</button>
             </div>
       <% end %>
 
+    <%= will_paginate @pets, :previous_label => 'Anterior', :next_label => 'Siguiente' %>
 
   </div>
   </div>

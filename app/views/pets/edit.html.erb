@@ -1,6 +1,8 @@
-<h1>Editing Pet</h1>
+<div class="contenido">
+  <h1 class="titulo">Editando mascota</h1>
 
-<%= render 'form', pet: @pet %>
+  <%= render 'form', pet: @pet %>
 
-<%= link_to 'Show', @pet %> |
-<%= link_to 'Back', pets_path %>
+  <%= link_to ( raw '<i class="material-icons">visibility</i>'), pet_path(@pet) %>
+  <%= link_to ( raw '<i class="material-icons">reply</i>'), pets_path %>
+</div>

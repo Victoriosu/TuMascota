@@ -4,7 +4,12 @@ class PetsController < ApplicationController
   # GET /pets
   # GET /pets.json
   def index
-    @pets = Pet.all
+    if params[:page].present?
+      @pets = Pet.paginate(:page => params[:page], :per_page => 10)
+    elsif
+      @pets = Pet.paginate(:page=> 1, :per_page => 10)
+    end
+
   end
 
   # GET /pets/1
@@ -27,7 +32,7 @@ class PetsController < ApplicationController
     @pet = Pet.new(pet_params)
     respond_to do |format|
       if @pet.save
-        format.html { redirect_to @pet, notice: 'Pet was successfully created.' }
+        format.html { redirect_to @pet, notice: 'La mascota fue correctamente añadida, ¡Gracias!.' }
         format.json { render :show, status: :created, location: @pet }
       else
         format.html { render :new }
@@ -41,7 +46,7 @@ class PetsController < ApplicationController
   def update
     respond_to do |format|
       if @pet.update(pet_params)
-        format.html { redirect_to @pet, notice: 'Pet was successfully updated.' }
+        format.html { redirect_to @pet, notice: 'La mascota fue correctamente modificada.' }
         format.json { render :show, status: :ok, location: @pet }
       else
         format.html { render :edit }
@@ -55,7 +60,7 @@ class PetsController < ApplicationController
   def destroy
     @pet.destroy
     respond_to do |format|
-      format.html { redirect_to pets_url, notice: 'Pet was successfully destroyed.' }
+      format.html { redirect_to pets_url, notice: 'La mascota fue correctamente borrada.' }
       format.json { head :no_content }
     end
   end

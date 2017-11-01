@@ -25,6 +25,9 @@
             O puedes tambien ingresar tu ubicación actual
             &nbsp;
             <button type="button" class="btn btn-primary" id="locateButton">Usar mi ubicación</button>
+            <div id="miniloading" style="display: none;">
+              <%= image_tag("loading.gif", alt: "Loading...", size:"50x50")  %>
+            </div>
           </div>
           <%= form.text_field :latitude, type: 'hidden', id: :latitude, class: 'input form-control' %>
           <%= form.text_field :longitude, type: 'hidden', id: :longitude, class: 'input form-control' %>
@@ -83,6 +86,7 @@
             alert(errorObj.code + ": " + errorObj.message);
 
             alert("No fue posible obtener su ubicación, favor ingrese su dirección");
+            $('#miniloading').hide();
 
         };
 
@@ -93,10 +97,12 @@
             $("#latitude").prop('value', position.coords.latitude);
             $("#longitude").prop('value', position.coords.longitude);
             getReverseGeocodingData(position.coords.latitude, position.coords.longitude)
+            $('#miniloading').hide();
         };
 
 
         $("#locateButton").click(function () {
+            $('#miniloading').css('display','-webkit-inline-box');
             navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
         });
 
