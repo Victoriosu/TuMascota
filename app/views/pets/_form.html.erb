@@ -1,5 +1,5 @@
-
-    <%= form_with(model: pet, local: true, defaults: { input_html: { style: 'border-color: bisque;' } }) do |form| %>
+<div class="container">
+    <%= form_with(model: pet, local: true) do |form| %>
         <% if pet.errors.any? %>
             <!--suppress ALL -->
             <div id="error_explanation">
@@ -12,31 +12,32 @@
               </ul>
             </div>
         <% end %>
+        <div class="form-group">
+          <div class="field">
+            <%= form.label "Descripcion" %>
+            <%= form.text_field :description, id: :pet_description, class: 'input form-control' %>
+          </div>
 
-        <div class="field">
-          <%= form.label "Descripcion" %>
-          <%= form.text_field :description, id: :pet_description %>
+          <div class="field">
+            <%= form.label "Dirección" %>
+            <%= form.text_field :address, id: :pet_address, class: 'geo-input input form-control'  %>
+            &nbsp;
+            O puedes tambien ingresar tu ubicación actual
+            &nbsp;
+            <button type="button" class="btn btn-primary" id="locateButton">Usar mi ubicación</button>
+          </div>
+          <%= form.text_field :latitude, type: 'hidden', id: :latitude, class: 'input form-control' %>
+          <%= form.text_field :longitude, type: 'hidden', id: :longitude, class: 'input form-control' %>
+
+          <div class="field">
+            <%= form.label "Imagen" %>
+            <%= form.file_field :img, id: :pet_img, class: 'form-control', prompt: "Hola" %>
+          </div>
+
+          <div id="location actions" class="location">
+            <%= form.submit value: "Crear mascota", class: "btn btn-success" %>
+          </div>
         </div>
-
-        <div class="field">
-          <%= form.label "Dirección" %>
-          <%= form.text_field :address, id: :pet_address, input_html: { class: 'geo-input form-control' } %>
-
-          O puedes tambien ingresar tu ubicación actual
-          <button type="button" id="locateButton">Usar mi ubicación</button>
-        </div>
-        <%= form.text_field :latitude, type: 'hidden', id: :latitude %>
-        <%= form.text_field :longitude, type: 'hidden', id: :longitude %>
-
-        <div class="field">
-          <%= form.label "Imagen" %>
-          <%= form.file_field :img, id: :pet_img %>
-        </div>
-
-        <div id="location actions">
-          <%= form.submit value: "Crear mascota" %>
-        </div>
-
     <script>
         var x = $("#locateButton");
         var direccion = $('#pet_address').val();
@@ -104,3 +105,4 @@
 
 
 <% end %>
+</div>
