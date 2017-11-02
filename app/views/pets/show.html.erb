@@ -1,8 +1,11 @@
 <div class="container">
   <div class="contenido">
     <div class="resumen" >
+  <%   if !notice.nil? %>
+          &nbsp;
   <p id="notice"><%= notice %></p>
-
+          &nbsp;
+  <% end %>
   <p>
     <strong>Description:</strong>
     <%= @pet.description %>
@@ -26,7 +29,7 @@
 
     <p>
     <strong>Mapa:</strong>
-      <div id="map_canvas" style="width:450px;height:300px;">
+        <div id="map_canvas" style="width:450px;height:300px;">
         <div style='width: 240px;'>
           <div id="map" style='width: 240px; height: 260px;'></div>
         </div>

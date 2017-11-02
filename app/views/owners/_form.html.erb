@@ -1,0 +1,43 @@
+<%= form_with(model: owner, local: true) do |form| %>
+  <% if owner.errors.any? %>
+    <div class="alert" id="alert error_explanation">
+      <h2><%= pluralize(owner.errors.count, "error") %> prohibited this owner from being saved:</h2>
+
+      <ul>
+      <% owner.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="form-group">
+  <div class="field">
+    <%= form.label "Nombre" %>
+    <%= form.text_field :name, id: :owner_name, class: 'input form-control'%>
+  </div>
+
+  <div class="field">
+    <%= form.label "Edad" %>
+    <%= form.number_field :age, id: :owner_age, type: 'number',min: 1, max: 120, class: 'input form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Email" %>
+    <%= form.text_field :email, id: :owner_email, type: 'email', class: 'input form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Numero telefónico" %>
+    <%= form.text_field :phone_number, id: :owner_phone_number, type: 'tel', class: 'input form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Dirección" %>
+    <%= form.text_area :address, id: :owner_address, class: 'input form-control' %>
+  </div>
+
+  <div id="actions" class="location">
+    <%= form.submit value: "Crear", class: "btn btn-success" %>
+  </div>
+</div>
+<% end %>

@@ -24,9 +24,19 @@
   <div id="loading" style="display: none;">
     <%= image_tag("loading.gif", id: "loading-image", alt: "Loading...", size:"50x50")  %>
   </div>
-    <div class="container">
-      <%= yield %>
-    </div>
+      <% if owner_signed_in? %>
+        <div class="contenido">
+          <%= link_to "Ver mi perfil", edit_owner_path(current_owner.id) %> | <%= link_to('Salir', destroy_owner_session_path, method: :delete) %>
+          <%= yield %>
+        </div>
+      <% elsif action_name != "new" %>
+        <%= link_to 'Ingresar como Dueño', new_owner_path, class: "btn btn-primary mini", style: "margin-top: 26px; float: right;" %>
+            <%= yield %>
+      <% else %>
+            <%= yield %>
+      <% end %>
+
+
 
 
   </body>

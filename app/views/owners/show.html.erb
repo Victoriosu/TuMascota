@@ -1,0 +1,32 @@
+<%   if !notice.nil? %>
+    &nbsp;
+    <p id="notice"><%= notice %></p>
+    &nbsp;
+<% end %>
+<p>
+  <strong>Name:</strong>
+  <%= @owner.name %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @owner.age %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @owner.email %>
+</p>
+
+<p>
+  <strong>Phone number:</strong>
+  <%= @owner.phone_number %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @owner.address %>
+</p>
+
+<%= link_to 'Edit', edit_owner_path(@owner) %> |
+<%= link_to 'Back', owners_path %>

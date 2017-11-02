@@ -13,6 +13,12 @@
             </div>
         <% end %>
         <div class="form-group">
+          <!-- Aqui se debe poner el radio button por pérdida solo si es que no es un nuevo registro-->
+          <div class="field">
+            <%= form.label "Nombre" %>
+            <%= form.text_field :name, id: :pet_name, class: 'input form-control' %>
+          </div>
+
           <div class="field">
             <%= form.label "Descripcion" %>
             <%= form.text_field :description, id: :pet_description, class: 'input form-control' %>
@@ -22,9 +28,9 @@
             <%= form.label "Dirección" %>
             <%= form.text_field :address, id: :pet_address, class: 'geo-input input form-control'  %>
             &nbsp;
-            O puedes tambien ingresar tu ubicación actual
+            O puedes ingresar tu ubicación actual
             &nbsp;
-            <button type="button" class="btn btn-primary" id="locateButton">Usar mi ubicación</button>
+            <button type="button" class="btn btn-primary" id="locateButton" style="padding: 7px;">Usar mi ubicación</button>
             <div id="miniloading" style="display: none;">
               <%= image_tag("loading.gif", alt: "Loading...", size:"50x50")  %>
             </div>
@@ -38,7 +44,7 @@
           </div>
 
           <div id="location actions" class="location">
-            <%= form.submit value: "Crear mascota", class: "btn btn-success" %>
+            <%= form.submit value: "Crear", class: "btn btn-success" %>
           </div>
         </div>
     <script>

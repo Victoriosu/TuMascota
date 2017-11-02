@@ -1,18 +1,18 @@
 <div class="container">
-<p id="notice"><%= notice %></p>
+<p id="notice alert alert-success"><%= notice %></p>
   <div class="contenido">
     <div class="titulo">
-      <h2 style="font-family: 'Awesome'">Mascotas reportadas</h2>
+      <h2 style="font-family: 'Awesome'">Mascotas perdidas</h2>
     </div>
 
       <div>
         <h5>¿Has visto o buscas alguna de estas mascotas?</h5>
-        <div style="text-align: center; font-size: 15px;"><%= link_to 'Agregar Nueva mascota', new_pet_path %></div>
+        <div style="text-align: center; font-size: 15px;"><%= link_to '¡Se perdio mi mascota!', new_pet_path %></div>
 
       </div>
 
       <% @pets.each do |pet| %>
-            <div class="imagen" style="width: 80px; height: auto; margin-left: 20%;">
+            <div class="imagen" style="  height: auto; text-align: center;">
             <% if !pet.img.exists? %>
                   <div class='dog'>
                     <div class='head'>
@@ -28,16 +28,15 @@
                       <div class='right'></div>
                     </div>
                   </div>
-                  <div style="text-align: center; margin-top: 10px;">Imagen no encontrada</div>
+                  <div class="sin_imagen">Sin imagen</div>
             <% else %>
-              <div style="margin-left: 50%; height: auto; "><%= image_tag pet.img.url(:thumb) %></div>
+              <div style="height: auto; width: auto; "><%= image_tag pet.img.url(:thumb) %></div>
             <% end %>
 
             </div>
 
-        <div class="inline-block">
-              <button type="button" class="btn btn-success" style="width: 50%;">¡Lo ví!</button>
-              <button type="button" class="btn btn-info" style="width: 48%;">¡Lo busco!</button>
+            <div class="inline-block">
+              <button type="button" class="btn btn-success" style="width: 100%;">¡Lo ví!</button>
             </div>
       <% end %>
 

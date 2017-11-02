@@ -32,7 +32,7 @@ class PetsController < ApplicationController
     @pet = Pet.new(pet_params)
     respond_to do |format|
       if @pet.save
-        format.html { redirect_to @pet, notice: 'La mascota fue correctamente añadida, ¡Gracias!.' }
+        format.html { redirect_to @pet, notice: 'La mascota fue correctamente añadida, ¡Gracias!' }
         format.json { render :show, status: :created, location: @pet }
       else
         format.html { render :new }
@@ -73,6 +73,6 @@ class PetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pet_params
-      params.require(:pet).permit(:description, :address, :longitude, :latitude, :img)
+      params.require(:pet).permit(:name, :missing, :description, :address, :longitude, :latitude, :img)
     end
 end

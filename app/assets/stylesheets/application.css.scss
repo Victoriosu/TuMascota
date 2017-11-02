@@ -25,11 +25,20 @@
 .resumen{
   background-color: white;
   font-size: 13px;
-padding-left: 15px;
+  padding-left: 15px;
+  margin-top: 25%;
 }
 
 .input{
   border:1px solid black;
+}
+
+.sin_imagen{
+  text-align: left;
+  margin-top: 10px;
+  height: 60px;
+  font-family: sans-serif;
+  padding-left: 20px;
 }
 
 #loading {
@@ -56,7 +65,41 @@ padding-left: 15px;
 
 .location{
   margin-top: 30px;
-  margin-left: 20%;
+  text-align: center;
+}
+
+#alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.notice {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  margin-top: 25%;
+  margin-right: 7%;
+  padding: 10px;
+}
+
+#notice {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+ }
+
+.alert-success{
+
 }
 
 .titulo {
@@ -78,6 +121,7 @@ tbody tr:nth-child(odd){
 }
 
 .contenido{
+    padding-top: 25%;
 	background-color: #e5eff1;
     padding: 20px;
     border-radius: 5px;
