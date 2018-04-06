@@ -36,6 +36,16 @@
     <%= form.text_area :address, id: :owner_address, class: 'input form-control' %>
   </div>
 
+  <div class="field">
+    <%= form.label "Contraseña" %>
+    <%= form.password_field :password, id: :owner_password, class: 'input form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Confirmación Contraseña" %>
+    <%= form.password_field :password_confirmation, id: :owner_password_confirmation, class: 'input form-control' %>
+  </div>
+
   <div id="actions" class="location">
     <%= form.submit value: "Crear", class: "btn btn-success" %>
   </div>

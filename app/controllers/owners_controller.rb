@@ -28,8 +28,8 @@ class OwnersController < ApplicationController
 
     respond_to do |format|
       if @owner.save
-        format.html { redirect_to @owner, notice: 'Owner was successfully created.' }
-        format.json { render :show, status: :created, location: @owner }
+        format.html { redirect_to :root, notice: 'Owner was successfully created.' }
+        format.json { render :show, status: :created, location: :root }
       else
         format.html { render :new }
         format.json { render json: @owner.errors, status: :unprocessable_entity }
@@ -69,6 +69,6 @@ class OwnersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def owner_params
-      params.require(:owner).permit(:name, :age, :email, :phone_number, :address)
+      params.require(:owner).permit(:name, :age, :email, :phone_number, :address, :password, :password_confirmation)
     end
 end
