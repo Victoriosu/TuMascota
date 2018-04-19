@@ -23,6 +23,7 @@ class PetsController < ApplicationController
 
   # GET /pets/1/edit
   def edit
+    @pet = Pet.find(params[:id])
   end
 
   # POST /pets
