@@ -1,6 +1,5 @@
 class PetsController < ApplicationController
   before_action :set_pet, only: [:show, :edit, :update, :destroy]
-  skip_before_filter :verify_authenticity_token, :only => [:index]
   # GET /pets
   # GET /pets.json
   def index
